@@ -1,0 +1,110 @@
+GIT SHORT NOTES (Commands + Popular Flags)xx
+
+1. git init
+Use: Starts Git in a folder and creates a hidden .git directory.
+
+2. git status
+Use: Shows current repo state – untracked, modified, staged files.
+Flags: -s → short format, -b → show branch
+
+3. git add
+Use: Moves changes from working directory to staging area.
+Flags:
+  - .   → add all changes in current directory
+  - -A  → add all changes (new, modified, deleted)
+  - -u  → add only modified and deleted files
+
+4. git commit
+Use: Create a snapshot of staged changes.
+Flags:
+  - -m "message"  → commit with message directly
+  - -a            → automatically stage modified/deleted files before commit
+  - -am "message" → stage modified/deleted and commit in one step
+  - --amend       → modify the last commit (message or content)
+
+5. git diff
+Use: Shows changes not staged for commit.
+Flags:
+  - --staged → shows changes staged for commit
+  - --color → colorize output
+  - commit1 commit2 → compare two commits
+
+6. git branch
+Use: View or create branches.
+Flags:
+  - branch-name → create a new branch
+  - -d          → delete a branch
+  - -D          → force delete a branch
+
+7. git checkout
+Use: Switch branches or restore files.
+Flags:
+  - branch-name → switch to branch
+  - -b branch-name → create and switch to new branch
+
+8. git switch
+Use: Modern command to switch branches.
+Flags:
+  - branch-name → switch to branch
+  - -c branch-name → create and switch to new branch
+
+9. git merge
+Use: Merge changes from one branch into current branch.
+Flags:
+  - --no-ff → create a merge commit even if fast-forward possible
+  - --squash → combine changes without commit
+  - --abort → abort merge in case of conflicts
+
+10. Pull Request (PR)
+Use: Request to merge your branch into another branch (main usually) for review.
+
+11. Branch protection
+Use: Lock main/important branches to avoid direct push.
+
+12. git commit --amend
+Use: Modify the last commit.
+Reason:
+  - Agar sirf last commit message edit karna hai → git commit --amend -m "newmessage"
+  - Agar last commit me kuch changes add karne hai:
+      1) Old commit origin pe push nahi hua → changes add karo, git commit --amend
+      2) Last commit pushed hai → changes add karo, git commit --amend, then git push --force
+
+13. git log
+Use: Shows commit history of current branch.
+Flags:
+--oneline → one line per commit (short hash + message)
+-n 5 → last 5 commits only
+--author="name" → filter by author
+
+git stash
+Temporarily saves uncommitted changes and cleans working directory.
+Works across all branches — global, not branch specific.
+
+   pop                        - apply + delete from stash
+   apply                      - apply + keep in stash
+   apply stash@{2}            - apply specific stash (2 = index from stash list)
+   list                       - shows all saved stashes
+   drop                       - delete most recent stash
+   clear                      - delete all stashes
+   push -m "half done navbar" - stash with a custom name
+
+note - only saves tracked files by default
+       use "git stash -u" to also include untracked files
+
+git remote
+Manages connections between local repo and remote repos (like GitHub).
+"origin" is just a default nickname — you can name it anything.
+
+
+git push
+Uploads local commits to the remote repository.
+
+   origin main               - push main branch to origin remote
+   -u origin main            - push + set up tracking (do this first time per branch)
+   origin branch-name        - push a specific branch
+   --force                   - overwrite remote history with local (use carefully)
+   origin --delete branch    - delete a branch from remote
+
+note - always do -u origin <branch> the first time you push a new branch
+       after that plain "git push" is enough
+       never force push on shared branches like main — it will mess up teammates' history

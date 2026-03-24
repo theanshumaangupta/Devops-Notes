@@ -1,0 +1,62 @@
+STEPS WHEN YOU SEARCH google.com
+
+1. Browser checks local cache for google.com IP.
+2. If not found, DNS server resolves google.com → IP address.
+3. Computer uses ARP to find the router MAC address.
+4. Router performs NAT and forwards packet to the internet.
+5. TCP connection established with the server (3-way handshake).
+6. TLS handshake establishes HTTPS encryption.
+7. Browser sends HTTP request to the server.
+8. Request travels through multiple routers on the internet.
+9. Request hits Google's firewall/security layer.
+10. Firewall checks rules (allowed ports, IPs, traffic).
+11. If allowed → request forwarded to load balancer.
+12. Load balancer forwards request to one backend server.
+13. Backend server processes request and may query database/services.
+14. Server sends HTML/CSS/JS response back.
+15. Browser downloads resources and renders the page.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NETWORKING QUICK NOTES	
+
+IP (Internet Protocol)
+Identifies devices on a network using an IP address (example: 192.168.1.10).
+It tells packets where the final destination device is.
+
+TCP (Transmission Control Protocol)
+Provides reliable communication between devices.
+Splits data into packets and ensures they arrive correctly and in order.
+
+DNS (Domain Name System)
+Converts domain names into IP addresses.
+Example: google.com → 142.250.183.14.
+
+HTTP (HyperText Transfer Protocol)
+Protocol used by browsers to request web pages from servers.
+Client sends request, server returns HTML/CSS/JS.
+
+HTTPS (HyperText Transfer Protocol Secure)
+Same as HTTP but encrypted using TLS.
+Protects data like passwords and personal information.
+
+ARP (Address Resolution Protocol)
+Finds the MAC address of a device using its IP address in a local network.
+Example: find router MAC from router IP.
+
+Router
+Device that connects a local network to the internet.
+It forwards packets between networks.
+
+NAT (Network Address Translation)
+Router converts private IP to public IP.
+Allows many devices to share one internet connection.
+
+Firewall
+
+Firewall ek security system hota hai jo network traffic ko control karta hai.
+Jaise AWS me agar security group me sirf port 80 aur 443 allowed hain,
+to inke alawa kisi bhi dusre port par request aaye to firewall us request ko drop kar deta hai.
+Isse server ko unauthorized access se protection milta hai.
+
+

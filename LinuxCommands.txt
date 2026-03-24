@@ -1,0 +1,513 @@
+========================================
+DEVOPS LINUX TERMINAL CHEATSHEET (TOP COMMANDS)
+===============================================
+
+---
+
+1. BASIC NAVIGATION
+
+---
+
+pwd
+Print current directory
+
+ls
+List files
+
+ls -la
+List all files including hidden
+
+cd folder
+Enter directory
+
+cd ..
+Go back one directory
+
+cd ~
+Go to home directory
+
+clear
+Clear terminal
+
+---
+
+2. FILE MANAGEMENT
+
+---
+
+touch file.txt
+Create file
+
+mkdir folder
+Create directory
+
+mkdir -p project/src
+Create nested directories
+
+rm file.txt
+Delete file
+
+rm -r folder
+Delete directory
+
+rm -rf folder
+Force delete folder
+
+cp file1 file2
+Copy file
+
+cp -r folder1 folder2
+Copy directory
+
+mv old.txt new.txt
+Rename or move file
+
+---
+
+3. FILE VIEWING
+
+---
+
+cat file.txt
+Display file content
+
+less file.txt
+Scrollable file viewer
+
+head file.txt
+First 10 lines
+
+tail file.txt
+Last 10 lines
+
+tail -f app.log
+Watch log file live
+
+---
+
+4. SEARCHING
+
+---
+
+find / -name file.txt
+Find file
+
+grep "error" file.txt
+Search text
+
+grep -r "error" .
+Search recursively
+
+which python
+Find command location
+
+---
+
+5. PERMISSIONS
+
+---
+
+ls -l
+Show permissions
+
+chmod +x script.sh
+Make executable
+
+chmod 755 script.sh
+Set permission
+
+chown user:group file
+Change owner
+
+---
+
+6. PROCESS MANAGEMENT
+
+---
+
+ps aux
+List running processes
+
+top
+Process monitor
+
+htop
+Better process monitor
+
+kill PID
+Stop process
+
+kill -9 PID
+Force stop
+
+pgrep nginx
+Find process id
+
+---
+
+7. SYSTEM MONITORING
+
+---
+
+top
+CPU usage
+
+free -h
+Memory usage
+
+df -h
+Disk usage
+
+du -sh folder
+Folder size
+
+uptime
+System uptime
+
+---
+
+8. NETWORKING
+
+---
+
+ip a
+Show IP address
+
+ping google.com
+Check connectivity
+
+curl google.com
+HTTP request
+
+wget https://file.com/file.zip
+Download file
+
+netstat -tuln
+Check open ports
+
+ss -tuln
+Modern port viewer
+
+dig google.com
+DNS lookup
+
+traceroute google.com
+Trace network path
+
+---
+
+9. PACKAGE MANAGEMENT (UBUNTU)
+
+---
+
+sudo apt update
+Update package list
+
+sudo apt upgrade
+Upgrade packages
+
+sudo apt install nginx
+Install package
+
+sudo apt remove nginx
+Remove package
+
+apt search docker
+Search packages
+
+---
+
+10. SERVICE MANAGEMENT
+
+---
+
+systemctl start nginx
+Start service
+
+systemctl stop nginx
+Stop service
+
+systemctl restart nginx
+Restart service
+
+systemctl status nginx
+Check service status
+
+systemctl enable nginx
+Start at boot
+
+systemctl disable nginx
+Disable startup
+
+---
+
+11. LOG MANAGEMENT
+
+---
+
+journalctl
+System logs
+
+journalctl -f
+Follow logs
+
+journalctl -u nginx
+Service logs
+
+tail -f /var/log/syslog
+Monitor system logs
+
+---
+
+12. SSH & REMOTE ACCESS
+
+---
+
+ssh user@server_ip
+Connect to server
+
+ssh -i key.pem ubuntu@server
+Connect using key
+
+scp file.txt user@server:/home/user/
+Copy file to server
+
+scp -r folder user@server:/home/user/
+Copy folder
+
+---
+
+13. ARCHIVE & COMPRESSION
+
+---
+
+zip -r file.zip folder
+Create zip
+
+unzip file.zip
+Extract zip
+
+tar -cvf archive.tar folder
+Create tar
+
+tar -xvf archive.tar
+Extract tar
+
+tar -czvf archive.tar.gz folder
+Compressed archive
+
+---
+
+14. ENVIRONMENT VARIABLES
+
+---
+
+env
+Show variables
+
+export APP_ENV=production
+Create variable
+
+echo $APP_ENV
+Display variable
+
+---
+
+15. DISK MANAGEMENT
+
+---
+
+lsblk
+List disks
+
+df -h
+Disk usage
+
+du -sh *
+Directory sizes
+
+mount /dev/sdb1 /mnt
+Mount disk
+
+umount /mnt
+Unmount disk
+
+---
+
+16. CRON JOBS
+
+---
+
+crontab -e
+Edit cron jobs
+
+crontab -l
+View cron jobs
+
+Example:
+
+0 2 * * * backup.sh
+
+Meaning:
+Run backup.sh every day at 2 AM
+
+---
+
+17. POWERFUL DEVOPS COMMANDS
+
+---
+
+watch -n 1 command
+Run command every second
+
+xargs
+Pass output as arguments
+
+Example:
+cat file.txt | xargs rm
+
+tee
+Save output and display
+
+Example:
+ls | tee output.txt
+
+cut
+Extract columns
+
+Example:
+cut -d ":" -f1 /etc/passwd
+
+---
+
+18. TEXT PROCESSING (VERY IMPORTANT)
+
+---
+
+sed
+Stream editor
+
+Example:
+sed 's/old/new/g' file.txt
+
+awk
+Powerful text processing
+
+Example:
+awk '{print $1}' file.txt
+
+sort
+Sort lines
+
+uniq
+Remove duplicates
+
+wc -l file.txt
+Count lines
+
+---
+
+19. NETWORK DEBUGGING
+
+---
+
+lsof -i :80
+Check which process uses port
+
+nc -zv localhost 80
+Test port
+
+curl -I website.com
+Check headers
+
+---
+
+20. DEVOPS TOOLS
+
+---
+
+git
+Version control
+
+docker
+Containerization
+
+kubectl
+Kubernetes control
+
+terraform
+Infrastructure as code
+
+ansible
+Configuration management
+
+nginx
+Web server
+
+node
+Runtime
+
+python
+Automation
+
+---
+
+21. TERMINAL PRODUCTIVITY
+
+---
+
+history
+Show command history
+
+Ctrl + C
+Stop command
+
+Ctrl + L
+Clear terminal
+
+Ctrl + R
+Search history
+
+Tab
+Autocomplete
+
+---
+
+22. REAL DEVOPS WORKFLOW
+
+---
+
+ssh ubuntu@server
+cd /var/www/app
+git pull
+docker build -t app .
+docker run -d -p 80:80 app
+systemctl restart nginx
+
+Typical work:
+
+* login to server
+* deploy code
+* restart service
+* check logs
+* monitor server
+
+========================================
+END OF DEVOPS LINUX NOTES
+=========================
+Linux Path Quick Notes
+
+1. Absolute Path → Full path starting from root `/`
+   Example: `/mnt/c/Users/Anshuman/Desktop`
+
+2. Relative Path → Path relative to current directory
+   Example: `cd project`
+
+3. Current Directory → `.` means current folder
+   Example: `./script.sh`
+
+4. Parent Directory → `..` means one folder up
+   Example: `cd ..`
+
+5. Home Directory → `~` means user's home folder
+   Example: `cd ~`
