@@ -59,5 +59,3 @@ Jaise AWS me agar security group me sirf port 80 aur 443 allowed hain,
 to inke alawa kisi bhi dusre port par request aaye to firewall us request ko drop kar deta hai.
 Isse server ko unauthorized access se protection milta hai.
 
-
-some other things ---(commit purpose)
